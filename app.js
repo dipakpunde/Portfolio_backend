@@ -10,17 +10,10 @@ const app = express()
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-
-const origin = 'https://portfolio-frontend-omega-five.vercel.app';
-
 app.use(cors({
-  origin,
-  methods: ['GET','POST','OPTIONS'],
-  allowedHeaders: ['Content-Type'],
-  credentials: true
-}));
-
-app.options('*', cors());
+    origin: "https://dipak-finacle-portfolio.onrender.com",
+    credentials: true
+}))
 app.use(cookieParser())
 
 app.use('/auth',authroutes);

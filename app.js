@@ -11,9 +11,16 @@ const app = express()
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors({
-    origin: "https://portfolio-frontend-omega-five.vercel.app",
-    credentials: true
-}))
+  origin: "https://portfolio-frontend-omega-five.vercel.app",
+  methods: ["GET", "POST", "OPTIONS"],
+  credentials: true
+}));
+
+app.options("*", cors({
+  origin: "https://portfolio-frontend-omega-five.vercel.app",
+  methods: ["GET", "POST", "OPTIONS"],
+  credentials: true
+}));
 app.use(cookieParser())
 
 app.use('/auth',authroutes);

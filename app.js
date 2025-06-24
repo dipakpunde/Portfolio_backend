@@ -11,7 +11,7 @@ const app = express()
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors({
-    origin: "https://portfolio-frontend-omega-five.vercel.app",
+    origin: "https://portfolio-backend-six-orpin.vercel.app",
     credentials: true
 }))
 app.use(cookieParser())

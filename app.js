@@ -16,12 +16,11 @@ app.use(cors({
 }))
 app.use(cookieParser())
 
-// ✅ Define root route to prevent 404 on "/"
+// ✅ Root route added
 app.get('/', (req, res) => {
-    res.send('Portfolio Backend API is running...')
+    res.send('Portfolio Backend API is running...');
 })
 
-// ✅ Mount auth routes
 app.use('/auth', authroutes)
 
 export default app

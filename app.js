@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
 import * as dotenv from 'dotenv'
-import {  authroutes } from './routes/index.js'
+import { authroutes } from './routes/index.js'
 
 dotenv.config()
 const app = express()
@@ -16,7 +16,12 @@ app.use(cors({
 }))
 app.use(cookieParser())
 
-app.use('/auth',authroutes);
+// ✅ Define root route to prevent 404 on "/"
+app.get('/', (req, res) => {
+    res.send('Portfolio Backend API is running...')
+})
 
+// ✅ Mount auth routes
+app.use('/auth', authroutes)
 
 export default app
